@@ -1,6 +1,5 @@
 import copy
 
-
 # 根据dict的value，返回相应key
 # 如果没有这个value,返回None
 def get_dict_key(dic, value):

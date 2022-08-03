@@ -1,7 +1,7 @@
 import os
-from experiment.mealpy_programs.anomaly_detection_tools import anomaly_detection
-from experiment.utils.filetools import save_list
-from experiment.utils.plottools import show_result
+from functions.detection.anomaly_detection_tools import anomaly_detection
+from functions.utils.filetools import save_list
+from functions.utils.plottools import show_result
 
 if __name__ == '__main__':
     # config

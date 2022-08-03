@@ -2,8 +2,8 @@ from mealpy.bio_based import SMA, BBO
 import numpy as np
 import pandas as pd
 from mealpy.swarm_based import PSO
+from functions.utils.detection_tools import choose_model
 
-from experiment.utils.detection_tools import choose_model
 
 # 全局变量
 train_matrix = []

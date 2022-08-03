@@ -17,9 +17,9 @@ from pyod.models.lof import LOF
 from pyod.models.ocsvm import OCSVM
 from pyod.models.pca import PCA
 from pyod.models.vae import VAE
-from experiment.utils import judgement
-from experiment.utils.datatools import get_observation_matrix, from_test_find_train_chromosome
-from experiment.utils.filetools import read_ground_truth_file
+from functions.utils import judgement
+from functions.utils.datatools import get_observation_matrix, from_test_find_train_chromosome
+from functions.utils.filetools import read_ground_truth_file
 
 
 def choose_model(model_name: str):

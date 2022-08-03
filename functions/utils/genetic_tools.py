@@ -1,8 +1,8 @@
 import random
 import numpy as np
 
-from experiment.utils.datatools import get_observation_matrix, from_test_find_train_chromosome
-from experiment.utils.detection_tools import choose_model
+from functions.utils.datatools import get_observation_matrix, from_test_find_train_chromosome
+from functions.utils.detection_tools import choose_model
 
 
 """

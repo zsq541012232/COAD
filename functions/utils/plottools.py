@@ -1,8 +1,8 @@
 from matplotlib import pyplot as plt
 
 # 画一个ts
-from experiment.utils.filetools import read_ground_truth_file
-from experiment.utils.judgement import get_fpr_and_tpr,  get_pre_recall_f1
+from functions.utils.filetools import read_ground_truth_file
+from functions.utils.judgement import get_fpr_and_tpr,  get_pre_recall_f1
 
 
 def plot_function_a_single_ts(ts_dict):

@@ -1,7 +1,7 @@
 import os
-from experiment.utils.detection_tools import conduct_pyod_detection
-from experiment.utils.filetools import save_list
-from experiment.utils.plottools import show_result
+from functions.utils.detection_tools import conduct_pyod_detection
+from functions.utils.filetools import save_list
+from functions.utils.plottools import show_result
 
 if __name__ == '__main__':
     # config

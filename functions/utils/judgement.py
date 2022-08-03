@@ -1,4 +1,4 @@
-from experiment.utils.datatools import search_insert
+from functions.utils.datatools import search_insert
 import numpy as np
 
 min_elapse = 10
