@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from functions.detection.get_optimizer import get_optimizer
+from functions.detection.optimizer import get_optimizer
 from functions.utils.detection_tools import choose_model
 
 
