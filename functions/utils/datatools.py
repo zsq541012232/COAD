@@ -198,9 +198,4 @@ def get_tuple_names_from_chromosome(col_name_list, chromosome):
     return tuple_name_list
 
 
-if __name__ == '__main__':
-    dict_1 = {0: '11', 1: '22'}
-    dict_2 = {0: '22', 1: '11'}
-    test_chormosome = [0]
-    train_chormosome = from_test_find_train_chromosome(dict_1, dict_2, test_chormosome)
-    print(train_chormosome)
+

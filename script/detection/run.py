@@ -49,16 +49,26 @@ def get_optimizer():
     return return_optimizer
 
 
-def get_instance(index):
-    return plobj.instance_paths[index]
+def get_instance():
+    flag = True
+    index = 0
+    while flag:
+        index = int(input('Which instance?'))
+        if 0 <= index < len(plobj.instances):
+            flag = False
+    return plobj.instances[index]
 
 
-def conduct_basic_detection(test_time_base, ground_truth_path, train_df_path, test_df_path,
-                            model_name):
+def conduct_basic_detection(instance,model_name):
+    test_time_base = instance[1]
+    ground_truth_path = instance[0] + '/ground_truth.csv'
+    train_df_path = instance[0] + '/train_df.csv'
+    test_df_path = instance[0] + '/test_df.csv'
+    instance_name = instance[2]
     # config
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
     file_path_root = 'result'
-    file_head = str(model_name) + '_' + str(test_time_base[:10]) + '_'
+    file_head = str(model_name) + '_' + str(instance_name) + '_'
     file_name_scores = file_head + 'scores.pkl'
 
     # run
@@ -72,11 +82,15 @@ def conduct_basic_detection(test_time_base, ground_truth_path, train_df_path, te
     save_list(anomaly_scores_list, path)
 
 
-def conduct_coad_detection(test_time_base, ground_truth_path, train_df_path, test_df_path,
-                           optimizer, model_name):
+def conduct_coad_detection(instance,optimizer, model_name):
+    test_time_base = instance[1]
+    ground_truth_path = instance[0] + '/ground_truth.csv'
+    train_df_path = instance[0] + '/train_df.csv'
+    test_df_path = instance[0] + '/test_df.csv'
+    instance_name = instance[2]
     # config
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-    file_head = str(optimizer) + '_' + str(model_name) + '_' + str(test_time_base[:10]) + '_'
+    file_head = str(optimizer) + '_' + str(model_name) + '_' + str(instance_name) + '_'
     file_name_combination = file_head + 'combination.pkl'
     file_name_scores = file_head + 'scores.pkl'
     file_path_root = 'result/'
@@ -101,24 +115,13 @@ def conduct_coad_detection(test_time_base, ground_truth_path, train_df_path, tes
 if __name__ == '__main__':
     detection_type = get_type()
     detection_model = get_model()
-    instance_information = get_instance(0)
-
-    test_time_base = instance_information[1]
-    ground_truth_path = instance_information[0] + '/ground_truth.csv'
-    train_df_path = instance_information[0] + '/train_df.csv'
-    test_df_path = instance_information[0] + '/test_df.csv'
+    instance = get_instance()
 
     if detection_type == 'COAD':
         optimizer = get_optimizer()
-        conduct_coad_detection(test_time_base=test_time_base,
-                               ground_truth_path=ground_truth_path,
-                               train_df_path=train_df_path,
-                               test_df_path=test_df_path,
+        conduct_coad_detection(instance=instance,
                                optimizer=optimizer,
                                model_name=detection_model)
     else:
-        conduct_basic_detection(test_time_base=test_time_base,
-                                ground_truth_path=ground_truth_path,
-                                train_df_path=train_df_path,
-                                test_df_path=test_df_path,
+        conduct_basic_detection(instance=instance,
                                 model_name=detection_model)
