@@ -1,9 +1,6 @@
-from mealpy.bio_based import SMA, BBO
 import numpy as np
 import pandas as pd
-from mealpy.music_based import HS
-from mealpy.swarm_based import PSO
-from mealpy.system_based import AEO
+from functions.detection.get_optimizer import get_optimizer
 from functions.utils.detection_tools import choose_model
 
 
@@ -31,18 +28,7 @@ def anomaly_detection(model_name,
     # 优化问题的定义
     problem_dict = problem_generation()
     # 选择模型
-    if optimizer == 'SMA':
-        model = SMA.BaseSMA(problem_dict, epoch=100, pop_size=20, pr=0.03)
-    elif optimizer == 'BBO':
-        model = BBO.BaseBBO(problem_dict, epoch=100, pop_size=20)
-    elif optimizer == 'PSO':
-        model = PSO.BasePSO(problem_dict, epoch=100, pop_size=20)
-    elif optimizer == 'AEO':
-        model = AEO.OriginalAEO(problem_dict, epoch=100, pop_size=20)
-    elif optimizer == 'HS':
-        model = HS.BaseHS(problem_dict, epoch=100, pop_size=20)
-    else:
-        return
+    model = get_optimizer(optimizer,problem_dict)
     # 对每个时间点进行检测
     current_time = 0
     solutions_list, anomaly_scores_list = conduct_detection_in_real_time(optimizer_model=model)
