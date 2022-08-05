@@ -53,7 +53,7 @@ def get_instance():
     flag = True
     index = 0
     while flag:
-        index = int(input('Which instance?'))
+        index = int(input('Which instance?')) - 1
         if 0 <= index < len(plobj.instances):
             flag = False
     return plobj.instances[index]
