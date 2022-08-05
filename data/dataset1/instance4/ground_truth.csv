@@ -1,0 +1,56 @@
+timestamp,level,cmdb_id,failure_type
+1647792456,node,node-2,node 磁盘读IO消耗
+1647793099,pod,shippingservice-0,k8s容器网络资源包重复发送
+1647794809,pod,frontend-2,k8s容器读io负载
+1647795480,pod,currencyservice-2,k8s容器网络丢包
+1647798485,pod,paymentservice-0,k8s容器网络资源包重复发送
+1647799707,node,node-2,node 磁盘空间消耗
+1647801135,service,cartservice,k8s容器网络资源包损坏
+1647804189,node,node-5,node 磁盘空间消耗
+1647807214,service,emailservice,k8s容器读io负载
+1647808427,service,cartservice,k8s容器网络丢包
+1647811370,pod,productcatalogservice-0,k8s容器写io负载
+1647814829,node,node-4,node 内存消耗
+1647816272,pod,recommendationservice-1,k8s容器网络资源包损坏
+1647816878,pod,emailservice-0,k8s容器网络丢包
+1647820076,node,node-4,node节点CPU故障
+1647821872,service,productcatalogservice,k8s容器网络丢包
+1647823589,node,node-6,node 磁盘写IO消耗
+1647826274,pod,shippingservice-1,k8s容器内存负载
+1647828147,node,node-6,node节点CPU故障
+1647829767,service,frontend,k8s容器内存负载
+1647831156,service,adservice,k8s容器读io负载
+1647831835,service,checkoutservice,k8s容器网络丢包
+1647833117,node,node-6,node 磁盘读IO消耗
+1647836047,node,node-5,node 磁盘写IO消耗
+1647837983,pod,shippingservice-0,k8s容器网络资源包损坏
+1647839856,pod,shippingservice-2,k8s容器读io负载
+1647840981,pod,recommendationservice-0,k8s容器网络资源包重复发送
+1647841753,pod,frontend-2,k8s容器网络丢包
+1647843588,pod,productcatalogservice-1,k8s容器网络丢包
+1647844751,pod,productcatalogservice2-0,k8s容器内存负载
+1647845941,service,frontend,k8s容器cpu负载
+1647852410,node,node-1,node 磁盘空间消耗
+1647857282,service,checkoutservice,k8s容器网络资源包损坏
+1647858555,service,adservice,k8s容器网络丢包
+1647859493,node,node-6,node 内存消耗
+1647861002,service,shippingservice,k8s容器内存负载
+1647862375,service,paymentservice,k8s容器cpu负载
+1647864210,pod,checkoutservice-2,k8s容器网络资源包损坏
+1647866059,node,node-2,node 内存消耗
+1647866421,pod,emailservice-0,k8s容器网络资源包损坏
+1647868134,node,node-6,node 磁盘空间消耗
+1647869511,pod,frontend-2,k8s容器读io负载
+1647870712,node,node-5,node 内存消耗
+1647873906,service,frontend,k8s容器网络资源包损坏
+1647876814,pod,checkoutservice2-0,k8s容器cpu负载
+1647853188,pod,adservice-2,k8s容器网络延迟
+1647818792,service,frontend,k8s容器网络延迟
+1647855176,service,paymentservice,k8s容器网络延迟
+1647854648,pod,productcatalogservice-1,k8s容器网络延迟
+1647824881,pod,recommendationservice-1,k8s容器网络延迟
+1647850089,pod,adservice-0,k8s容器网络丢包
+1647797643,pod,adservice-0,k8s容器进程中止
+1647847185,service,paymentservice,k8s容器进程中止
+1647806025,pod,recommendationservice-1,k8s容器进程中止
+1647848749,service,paymentservice,k8s容器网络资源包重复发送
