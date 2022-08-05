@@ -1,0 +1,52 @@
+timestamp,level,cmdb_id,failure_type
+1647792846,node,node-5,node 内存消耗
+1647795536,pod,emailservice-1,k8s容器读io负载
+1647798509,pod,emailservice-0,k8s容器内存负载
+1647800351,pod,checkoutservice-0,k8s容器网络资源包损坏
+1647802167,service,frontend,k8s容器网络资源包损坏
+1647803585,node,node-3,node节点CPU故障
+1647805830,node,node-1,node 磁盘读IO消耗
+1647808770,pod,productcatalogservice-1,k8s容器内存负载
+1647810366,pod,productcatalogservice-0,k8s容器网络丢包
+1647811973,service,currencyservice,k8s容器网络资源包损坏
+1647814334,node,node-2,node 磁盘写IO消耗
+1647818719,pod,frontend-1,k8s容器cpu负载
+1647820275,service,cartservice,k8s容器网络资源包损坏
+1647825820,node,node-1,node 磁盘读IO消耗
+1647827052,service,adservice,k8s容器网络资源包重复发送
+1647829513,service,cartservice,k8s容器网络资源包损坏
+1647831451,pod,cartservice-0,k8s容器网络资源包重复发送
+1647833785,node,node-2,node节点CPU故障
+1647835588,node,node-5,node 磁盘空间消耗
+1647841770,service,emailservice,k8s容器读io负载
+1647842293,service,recommendationservice,k8s容器内存负载
+1647843665,node,node-5,node节点CPU爬升
+1647844428,service,emailservice,k8s容器网络资源包重复发送
+1647846747,node,node-2,node节点CPU爬升
+1647848486,node,node-3,node 磁盘空间消耗
+1647849842,service,emailservice,k8s容器写io负载
+1647852824,node,node-6,node节点CPU故障
+1647855626,pod,checkoutservice-1,k8s容器网络资源包重复发送
+1647858895,service,checkoutservice,k8s容器内存负载
+1647863356,pod,currencyservice-2,k8s容器写io负载
+1647863951,service,recommendationservice,k8s容器读io负载
+1647865496,pod,cartservice2-0,k8s容器网络丢包
+1647866926,pod,frontend2-0,k8s容器读io负载
+1647869629,pod,checkoutservice2-0,k8s容器cpu负载
+1647870781,pod,currencyservice-2,k8s容器cpu负载
+1647872301,node,node-4,node 内存消耗
+1647873778,pod,recommendationservice-2,k8s容器网络资源包损坏
+1647874684,node,node-2,node 内存消耗
+1647876235,service,adservice,k8s容器网络延迟
+1647832942,pod,cartservice2-0,k8s容器网络延迟
+1647796916,service,frontend,k8s容器网络延迟
+1647851344,pod,productcatalogservice-2,k8s容器网络延迟
+1647817324,service,productcatalogservice,k8s容器网络延迟
+1647807349,service,shippingservice,k8s容器网络延迟
+1647813698,pod,shippingservice2-0,k8s容器网络延迟
+1647823316,pod,checkoutservice-1,k8s容器进程中止
+1647857740,service,checkoutservice,k8s容器进程中止
+1647816945,service,currencyservice,k8s容器进程中止
+1647861911,service,currencyservice,k8s容器进程中止
+1647838144,service,emailservice,k8s容器进程中止
+1647840355,pod,shippingservice-1,k8s容器进程中止

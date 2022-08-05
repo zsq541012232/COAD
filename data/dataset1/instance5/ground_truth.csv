@@ -1,0 +1,32 @@
+timestamp,level,cmdb_id,failure_type
+1647736122,service,cartservice,k8s容器网络丢包
+1647736886,node,node-2,node 内存消耗
+1647740093,service,frontend,k8s容器cpu负载
+1647742414,pod,adservice-1,k8s容器内存负载
+1647744231,node,node-4,node 磁盘写IO消耗
+1647745475,service,cartservice,k8s容器网络丢包
+1647747451,node,node-4,node 磁盘空间消耗
+1647751477,service,productcatalogservice,k8s容器网络资源包重复发送
+1647753000,pod,productcatalogservice-0,k8s容器网络丢包
+1647754192,pod,cartservice2-0,k8s容器网络资源包损坏
+1647755812,service,checkoutservice,k8s容器cpu负载
+1647756810,node,node-2,node节点CPU故障
+1647758049,service,emailservice,k8s容器网络资源包重复发送
+1647759913,node,node-5,node 磁盘写IO消耗
+1647761426,node,node-2,node 磁盘读IO消耗
+1647762321,service,shippingservice,k8s容器网络资源包重复发送
+1647765122,service,cartservice,k8s容器网络丢包
+1647766205,pod,shippingservice2-0,k8s容器读io负载
+1647768435,pod,frontend-2,k8s容器网络丢包
+1647770050,service,shippingservice,k8s容器cpu负载
+1647772787,service,recommendationservice,k8s容器网络资源包损坏
+1647773780,service,frontend,k8s容器cpu负载
+1647774736,service,shippingservice,k8s容器内存负载
+1647779497,pod,frontend-0,k8s容器网络资源包损坏
+1647781538,node,node-3,node 磁盘空间消耗
+1647783528,pod,adservice-1,k8s容器网络资源包损坏
+1647785512,node,node-5,node 磁盘写IO消耗
+1647785797,pod,checkoutservice-0,k8s容器cpu负载
+1647790386,node,node-3,node 磁盘写IO消耗
+1647777271,pod,currencyservice-1,k8s容器网络延迟
+1647740664,pod,emailservice-1,k8s容器网络延迟
