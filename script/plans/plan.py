@@ -1,12 +1,12 @@
-types = ['BASIC','COAD']
+types = ['BASIC', 'COAD']
 
 model_names = ['GMM']
 
-optimizers = ['BBO','PSO','SMA','AEO','HS']
+optimizers = ['BBO', 'PSO', 'SMA', 'AEO', 'HS']
 
 instances = [
-    ['data/dataset1/instance1','2022-03-20 00:00:00','dataset1_instance1'],
-    ['data/dataset1/instance2', '2022-03-21 00:00:00','dataset1_instance2'],
+    ['data/dataset1/instance1', '2022-03-20 00:00:00', 'dataset1_instance1'],
+    ['data/dataset1/instance2', '2022-03-21 00:00:00', 'dataset1_instance2'],
     ['data/dataset1/instance3', '2022-03-20 00:00:00', 'dataset1_instance3'],
     ['data/dataset1/instance4', '2022-03-21 00:00:00', 'dataset1_instance4'],
     ['data/dataset1/instance5', '2022-03-20 00:00:00', 'dataset1_instance5'],
@@ -19,5 +19,3 @@ instances = [
     ['data/dataset2/instance5', '2022-05-09 00:00:00', 'dataset2_instance5'],
 
 ]
-
-
