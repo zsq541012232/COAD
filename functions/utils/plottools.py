@@ -74,3 +74,17 @@ def plot_threshold_pre_recall(anomaly_time_point_ground_truth, anomaly_scores_at
             color='green', marker='*')
     ax.legend()
     plt.show()
+
+
+def plot_prc_curve(anomaly_time_point_ground_truth, anomaly_scores_at_time):
+    percent_x = [i / 100 for i in range(100 + 1)]
+    pre_y, recall_y, f1_y = get_pre_recall_f1(anomaly_time_point_ground_truth,
+                                              anomaly_scores_at_time,
+                                              percent_x)
+    fig, ax = plt.subplots()  # 创建图实例
+    ax.plot(recall_y, pre_y, label='prc', linewidth=0.7,
+            alpha=0.5,
+            ls='-.',
+            color='red', marker='*')
+    ax.legend()
+    plt.show()

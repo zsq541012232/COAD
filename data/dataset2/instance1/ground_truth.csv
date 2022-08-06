@@ -1,46 +1,34 @@
 timestamp,level,cmdb_id,failure_type
-1651338400,node,node-6,node节点CPU故障
-1651339370,node,node-6,node节点CPU故障
-1651340937,pod,recommendationservice-0,k8s容器读io负载
-1651342931,node,node-5,node 磁盘读IO消耗
-1651347456,pod,frontend-2,k8s容器内存负载
-1651353978,node,node-1,node 磁盘读IO消耗
-1651358169,service,paymentservice,k8s容器网络资源包重复发送
-1651361221,node,node-3,node 磁盘读IO消耗
-1651362327,service,currencyservice,k8s容器网络丢包
-1651365415,service,emailservice,k8s容器网络丢包
-1651366271,pod,checkoutservice-0,k8s容器cpu负载
-1651367122,service,cartservice,k8s容器网络资源包重复发送
-1651369063,service,checkoutservice,k8s容器cpu负载
-1651371142,node,node-4,node 内存消耗
-1651373643,node,node-1,node 磁盘空间消耗
-1651374560,node,node-5,node 磁盘空间消耗
-1651380417,service,emailservice,k8s容器cpu负载
-1651382580,pod,frontend-0,k8s容器写io负载
-1651383819,pod,productcatalogservice-0,k8s容器网络资源包损坏
-1651386533,service,paymentservice,k8s容器cpu负载
-1651388079,node,node-5,node 磁盘写IO消耗
-1651392196,pod,recommendationservice-0,k8s容器写io负载
-1651393380,pod,emailservice-1,k8s容器读io负载
-1651394766,node,node-3,node 磁盘写IO消耗
-1651395543,node,node-4,node节点CPU爬升
-1651396610,node,node-6,node 磁盘读IO消耗
-1651398576,pod,frontend-0,k8s容器cpu负载
-1651398958,service,emailservice,k8s容器读io负载
-1651401140,service,paymentservice,k8s容器cpu负载
-1651402680,service,frontend,k8s容器读io负载
-1651404706,node,node-5,node节点CPU故障
-1651406879,node,node-1,node节点CPU故障
-1651407633,pod,shippingservice-0,k8s容器cpu负载
-1651409804,node,node-6,node 磁盘写IO消耗
-1651410232,pod,cartservice-2,k8s容器网络丢包
-1651414976,service,emailservice,k8s容器网络资源包重复发送
-1651415840,service,frontend,k8s容器网络资源包重复发送
-1651417166,pod,recommendationservice-2,k8s容器网络资源包损坏
-1651419605,pod,currencyservice-2,k8s容器读io负载
-1651355555,pod,shippingservice-2,k8s容器网络丢包
-1651379795,pod,productcatalogservice-2,k8s容器进程中止
-1651377586,pod,frontend-1,k8s容器网络延迟
-1651403338,service,shippingservice,k8s容器网络延迟
-1651389043,service,checkoutservice,k8s容器网络延迟
-1651385173,pod,checkoutservice2-0,k8s容器进程中止
+1647736507,pod,recommendationservice2-0,k8s容器写io负载
+1647737295,node,node-6,node节点CPU故障
+1647739015,pod,cartservice2-0,k8s容器内存负载
+1647740269,service,productcatalogservice,k8s容器网络资源包损坏
+1647743634,pod,currencyservice-0,k8s容器读io负载
+1647744775,node,node-4,node 磁盘读IO消耗
+1647745687,pod,recommendationservice2-0,k8s容器cpu负载
+1647746749,pod,frontend-0,k8s容器cpu负载
+1647748348,pod,adservice-1,k8s容器网络资源包重复发送
+1647749225,service,currencyservice,k8s容器读io负载
+1647750907,service,shippingservice,k8s容器读io负载
+1647752146,node,node-4,node节点CPU故障
+1647753141,node,node-5,node 磁盘读IO消耗
+1647756782,service,checkoutservice,k8s容器读io负载
+1647757979,pod,emailservice-1,k8s容器写io负载
+1647759731,pod,checkoutservice-0,k8s容器cpu负载
+1647761261,service,emailservice,k8s容器网络资源包重复发送
+1647762523,node,node-2,node节点CPU故障
+1647763127,node,node-6,node节点CPU爬升
+1647764883,pod,emailservice-0,k8s容器网络资源包重复发送
+1647772907,node,node-2,node 磁盘空间消耗
+1647775423,node,node-3,node节点CPU爬升
+1647776532,pod,recommendationservice-2,k8s容器内存负载
+1647781132,service,productcatalogservice,k8s容器网络资源包重复发送
+1647782273,node,node-6,node 磁盘写IO消耗
+1647784693,node,node-6,node 磁盘写IO消耗
+1647785991,service,recommendationservice,k8s容器写io负载
+1647787471,service,shippingservice,k8s容器网络资源包重复发送
+1647789748,node,node-6,node 磁盘写IO消耗
+1647769665,pod,adservice2-0,k8s容器网络延迟
+1647766236,pod,cartservice-0,k8s容器网络延迟
+1647756033,service,recommendationservice,k8s容器网络延迟
+1647770896,service,shippingservice,k8s容器网络延迟
