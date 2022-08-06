@@ -51,15 +51,18 @@ def get_optimizer():
 
 def get_instance():
     flag = True
-    index = 0
+    index_dataset = 0
+    index_instance = 0
     while flag:
-        index = int(input('Which instance?')) - 1
-        if 0 <= index < len(plobj.instances):
+        index_dataset = int(input('Which dataset?')) - 1
+        index_instance = int(input('Which instance?')) - 1
+        if 0 <= index_instance < len(plobj.instances) and 0 <= index_dataset <= 2:
             flag = False
+    index = index_dataset * 7 + index_instance
     return plobj.instances[index]
 
 
-def conduct_basic_detection(instance,model_name):
+def conduct_basic_detection(instance, model_name):
     test_time_base = instance[1]
     ground_truth_path = '../../' + instance[0] + '/ground_truth.csv'
     train_df_path = '../../' + instance[0] + '/train_df.csv'
@@ -82,7 +85,7 @@ def conduct_basic_detection(instance,model_name):
     save_list(anomaly_scores_list, path)
 
 
-def conduct_coad_detection(instance,optimizer, model_name):
+def conduct_coad_detection(instance, optimizer, model_name):
     test_time_base = instance[1]
     ground_truth_path = '../../' + instance[0] + '/ground_truth.csv'
     train_df_path = '../../' + instance[0] + '/train_df.csv'
