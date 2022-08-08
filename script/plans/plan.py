@@ -1,6 +1,6 @@
 types = ['BASIC', 'COAD']
 
-model_names = ['GMM']
+model_names = ['GMM','LOF']
 
 optimizers = ['BBO', 'PSO', 'SMA', 'AEO', 'HS']
 

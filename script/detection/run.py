@@ -70,9 +70,8 @@ def conduct_basic_detection(instance, model_name):
     instance_name = instance[2]
     # config
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-    file_path_root = '../../result/'
-    file_head = str(model_name) + '_' + str(instance_name) + '_'
-    file_name_scores = file_head + 'scores.pkl'
+    file_path_root = '../../result/' + 'BASIC/' + str(model_name) + '/'
+    file_name_scores = str(instance_name) + '_' + 'scores.pkl'
 
     # run
     anomaly_scores_list = conduct_pyod_detection(train_df_path, test_df_path, model_name)
@@ -93,10 +92,9 @@ def conduct_coad_detection(instance, optimizer, model_name):
     instance_name = instance[2]
     # config
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-    file_head = str(optimizer) + '_' + str(model_name) + '_' + str(instance_name) + '_'
-    file_name_combination = file_head + 'combination.pkl'
-    file_name_scores = file_head + 'scores.pkl'
-    file_path_root = '../../result/'
+    file_name_combination = str(instance_name) + '_' + 'combination.pkl'
+    file_name_scores = str(instance_name) + '_' + 'scores.pkl'
+    file_path_root = '../../result/' + str(optimizer) + '/' + str(model_name) + '/'
 
     # run
     solutions_list, anomaly_scores_list = anomaly_detection(model_name=model_name,
