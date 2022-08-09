@@ -1,8 +1,13 @@
 types = ['BASIC', 'COAD']
 
-model_names = ['GMM','LOF']
+model_names = ['GMM', 'LOF', 'PCA', 'AnoGAN', 'DeepSVDD', 'AutoEncoder']
 
-optimizers = ['BBO', 'PSO', 'SMA', 'AEO', 'HS']
+# bio-based : BBO (Biogeography-Based Optimization)
+# evolution-based : GA (Genetic Algorithm)
+# music-based : HS (Harmony Search)
+# swarm-based : PSO (Particle Swarm Optimization)
+# system-based : AEO (Artificial Ecosystem-based Optimization)
+optimizers = ['BBO', 'GA', 'HS', 'PSO', 'AEO']
 
 instances = [
     ['data/dataset1/instance1', '2022-03-20 00:00:00', 'dataset1_instance1'],
