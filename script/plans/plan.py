@@ -1,6 +1,6 @@
 types = ['BASIC', 'COAD']
 
-model_names = ['GMM', 'LOF', 'PCA', 'AnoGAN', 'DeepSVDD', 'AutoEncoder']
+model_names = ['GMM', 'LOF', 'COPOD', 'AnoGAN', 'DeepSVDD', 'AutoEncoder']
 
 # bio-based : BBO (Biogeography-Based Optimization)
 # evolution-based : GA (Genetic Algorithm)
