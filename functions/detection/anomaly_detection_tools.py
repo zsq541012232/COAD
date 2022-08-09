@@ -48,12 +48,13 @@ def get_array_data(solution):
     return_train_list = []
     return_test_list = []
     solution_positions = list(set(solution))
+    solution_positions_int = [int(value) for value in solution_positions]
     # 获取train
     for train_row in range(len(train_matrix)):
-        new_row = [train_matrix[train_row][solution_pos] for solution_pos in solution_positions]
+        new_row = [train_matrix[train_row][solution_pos] for solution_pos in solution_positions_int]
         return_train_list.append(new_row)
     # 获取test
-    return_test_list.append([test_matrix[current_time][solution_pos] for solution_pos in solution_positions])
+    return_test_list.append([test_matrix[current_time][solution_pos] for solution_pos in solution_positions_int])
     # 转换成np_array
     return_train_array = np.array(return_train_list)
     return_test_array = np.array(return_test_list)
