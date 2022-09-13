@@ -50,15 +50,24 @@ def get_optimizer():
 
 
 def get_instance():
+    dataset1_len = 7
+    dataset2_len = 6
+    dataset3_len = 7
+    max_len = max(dataset1_len,dataset2_len,dataset3_len)
     flag = True
     index_dataset = 0
     index_instance = 0
     while flag:
         index_dataset = int(input('Which dataset?')) - 1
         index_instance = int(input('Which instance?')) - 1
-        if 0 <= index_instance < len(plobj.instances) and 0 <= index_dataset <= 2:
+        if 0 <= index_instance < max_len and 0 <= index_dataset <= 2:
             flag = False
-    index = index_dataset * 7 + index_instance
+    if index_dataset == 0:
+        index = index_instance
+    elif index_dataset == 1:
+        index = dataset1_len + index_instance
+    else:
+        index = dataset1_len + dataset2_len + index_instance
     return plobj.instances[index]
 
 

@@ -1,7 +1,7 @@
 # COAD:Anomaly Detection using Combinatorial Optimization
 types = ['BASIC', 'COAD']
 
-model_names = ['GMM', 'LOF', 'DeepSVDD', 'AutoEncoder', 'VAE', 'DeepSVDD', 'COPOD', 'KDE', 'KNN', 'IForest']
+model_names = ['GMM', 'LOF', 'DeepSVDD', 'AutoEncoder', 'VAE', 'DeepSVDD', 'COPOD', 'KDE', 'KNN', 'IForest', 'PCA', 'OCSVM']
 
 # bio-based : BBO (Biogeography-Based Optimization)
 # evolution-based : GA (Genetic Algorithm)
