@@ -26,11 +26,11 @@ def get_model():
     return_model = ''
     while flag:
         print('The models are:', str(plobj.model_names))
-        answer = int(input('Use which model? put index starting from 1:'))
-        if answer not in [(i+1) for i in range(len(plobj.model_names))]:
+        answer = input('Use which model?')
+        if answer not in plobj.model_names:
             continue
         else:
-            return_model = plobj.model_names[answer-1]
+            return_model = answer
             flag = False
     return return_model
 

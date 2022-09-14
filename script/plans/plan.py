@@ -1,4 +1,4 @@
-# COAD:Anomaly Detection using Combinatorial Optimization
+# COAD: Anomaly Detection using Combinatorial Optimization
 types = ['BASIC', 'COAD']
 
 model_names = ['GMM', 'LOF', 'DeepSVDD', 'AutoEncoder', 'VAE', 'DeepSVDD', 'COPOD', 'KDE', 'KNN', 'IForest', 'PCA', 'OCSVM']
