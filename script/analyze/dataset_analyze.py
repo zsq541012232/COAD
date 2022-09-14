@@ -1,6 +1,6 @@
 from functions.detection.anomaly_detection_tools import read_matrix
 from functions.utils.filetools import read_ground_truth_file
-from functions.utils.plottools import plot_list_with_index, plot_dataset_affected_metric_number_by_ground_truth
+from functions.utils.plottools import plot_dataset_affected_metric_number_by_ground_truth
 from script.detection.run import get_instance
 import numpy as np
 
