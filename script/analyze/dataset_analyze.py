@@ -52,7 +52,7 @@ def get_affected_metric_number_list_by_ground_truth(sorted_ground_truth_time, te
     return return_list
 
 
-if __name__ == '__main__':
+def analyze_dataset():
     instance = get_instance()
     test_time_base = instance[1]
     ground_truth_path = '../../' + instance[0] + '/ground_truth.csv'
@@ -72,3 +72,7 @@ if __name__ == '__main__':
 
     plot_dataset_affected_metric_number_by_ground_truth(list=abnormal_metric_number_in_five_minutes,
                                                         data_instance=instance)
+
+
+if __name__ == '__main__':
+    analyze_dataset()
