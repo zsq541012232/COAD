@@ -3,6 +3,7 @@ from functions.utils.filetools import read_ground_truth_file
 from functions.utils.plottools import plot_dataset_affected_metric_number_by_ground_truth
 from script.detection.run import get_instance
 import numpy as np
+import script.plans.plan as plobj
 
 
 def get_test_list(test_df, metric_id):
@@ -74,5 +75,25 @@ def analyze_dataset():
                                                         data_instance=instance)
 
 
+def put_out_all_data_instance_analyze_result():
+    for instance in plobj.instances:
+        test_time_base = instance[1]
+        ground_truth_path = '../../' + instance[0] + '/ground_truth.csv'
+        train_df_path = '../../' + instance[0] + '/train_df.csv'
+        test_df_path = '../../' + instance[0] + '/test_df.csv'
+
+        train_matrix, test_matrix = read_matrix(train_matrix_path=train_df_path,
+                                                test_matrix_path=test_df_path)
+        anomaly_time_point_ground_truth, l, c, f = read_ground_truth_file(test_time_base, ground_truth_path)
+        sorted_ground_truth = list(sorted(anomaly_time_point_ground_truth))
+
+        elapse_time = 5
+        abnormal_metric_number_in_five_minutes = get_affected_metric_number_list_by_ground_truth(
+            sorted_ground_truth_time=sorted_ground_truth,
+            test_df=test_matrix,
+            elapse_time_=elapse_time)
+        print(instance[2] + ': ' + str(abnormal_metric_number_in_five_minutes))
+
+
 if __name__ == '__main__':
-    analyze_dataset()
+    put_out_all_data_instance_analyze_result()
