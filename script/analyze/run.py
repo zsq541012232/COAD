@@ -107,6 +107,25 @@ def putout_f1_by_random_choose_threshold(score_path, instance_):
     return sum(f1_list) / len(f1_list)
 
 
+def putout_max_f1_among_all_threshold(score_path, instance_):
+    f1_list = []
+
+    test_time_base = instance_[1]
+    ground_truth_path = '../../' + instance_[0] + '/ground_truth.csv'
+
+    anomaly_time_point_ground_truth, l, c, f = read_ground_truth_file(test_time_base, ground_truth_path)
+    anomaly_scores_at_time = read_list(score_path)
+
+    for percent_int in range(0, 101):
+        current_percentage = percent_int / 100
+        f1 = get_f1(anomaly_time_point_ground_truth=anomaly_time_point_ground_truth,
+                    anomaly_scores_at_time=anomaly_scores_at_time,
+                    percent=current_percentage)
+        f1_list.append(f1)
+
+    return max(f1_list)
+
+
 if __name__ == '__main__':
     result_score_path = get_score_path()
     instance = get_instance()
@@ -122,3 +141,6 @@ if __name__ == '__main__':
 
     avg_f1 = putout_f1_by_random_choose_threshold(result_score_path, instance)
     print('avg_f1: ' + str(avg_f1))
+
+    max_f1 = putout_max_f1_among_all_threshold(result_score_path, instance)
+    print('max_f1: ' + str(max_f1))
