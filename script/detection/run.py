@@ -39,7 +39,7 @@ def get_optimizer():
     flag = True
     return_optimizer = ''
     while flag:
-        print('The models are:', str(plobj.optimizers))
+        print('The optimizers are:', str(plobj.optimizers))
         answer = input('Use which optimizer?')
         if answer not in plobj.optimizers:
             continue
