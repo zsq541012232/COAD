@@ -1,6 +1,6 @@
 from functions.utils.filetools import read_ground_truth_file, read_list
 from functions.utils.judgement import get_pre_recall_f1, get_current_pre_and_recall
-from functions.utils.plottools import plot_threshold_pre_recall, plot_prc_curve, plot_roc_curve
+from functions.utils.plottools import plot_threshold_pre_recall, plot_prc_curve, plot_roc_curve, show_result
 from script.detection.run import get_instance, get_type, get_model, get_optimizer
 import random
 
@@ -130,6 +130,10 @@ if __name__ == '__main__':
     result_score_path = get_score_path()
     instance = get_instance()
     method_name = get_method_name()
+    test_time_base = instance[1]
+    ground_truth_path = '../../' + instance[0] + '/ground_truth.csv'
+    anomaly_scores_list = read_list(result_score_path)
+    model_name = method_name
 
     plot_pre_recall_by_threshold(result_score_path, instance, method_name)
 
@@ -138,6 +142,8 @@ if __name__ == '__main__':
     plot_roc(result_score_path, instance, method_name)
 
     putout_f1_by_threshold_percent(result_score_path, instance)
+
+    show_result(test_time_base, ground_truth_path, anomaly_scores_list, model_name)
 
     avg_f1 = putout_f1_by_random_choose_threshold(result_score_path, instance)
     print('avg_f1: ' + str(avg_f1))

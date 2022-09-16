@@ -26,6 +26,8 @@ def plot_list_with_index(list):
 def plot_dataset_affected_metric_number_by_ground_truth(list, data_instance):
     instance_name = data_instance[2]
     x = [i for i in range(len(list))]
+    plt.rcParams['savefig.dpi'] = 300
+    plt.rcParams['figure.dpi'] = 300
     plt.plot(x, list)
     plt.xlabel('Ground Truth ID')
     plt.ylabel('Affected Metric Number (3-sigma)')
@@ -44,6 +46,8 @@ def plot_anomaly_line_with_ground_truth(list, ground_truth_time_list, model_name
              ls='-.',
              color='blue', marker='*')
     plt.vlines(ground_truth_time_list, ymin=min(y), ymax=max(y), label='ground_truth', colors='green')
+    plt.xlabel('Timestamp')
+    plt.ylabel('Anomaly Score')
     plt.legend()
     plt.show()
 
@@ -88,7 +92,9 @@ def plot_threshold_pre_recall(anomaly_time_point_ground_truth, anomaly_scores_at
     plt.xlabel('Threshold Percentage')
     plt.title(method_name)
     ax.legend()
+    # plt.savefig(fname='/Users/zsq/Desktop/111.png', dpi=300)
     plt.show()
+
 
 
 def plot_prc_curve(anomaly_time_point_ground_truth, anomaly_scores_at_time, method_name):

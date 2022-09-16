@@ -96,4 +96,4 @@ def put_out_all_data_instance_analyze_result():
 
 
 if __name__ == '__main__':
-    put_out_all_data_instance_analyze_result()
+    analyze_dataset()
