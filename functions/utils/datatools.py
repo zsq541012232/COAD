@@ -1,5 +1,6 @@
 import copy
 
+
 # 根据dict的value，返回相应key
 # 如果没有这个value,返回None
 def get_dict_key(dic, value):
@@ -198,4 +199,13 @@ def get_tuple_names_from_chromosome(col_name_list, chromosome):
     return tuple_name_list
 
 
-
+# normalize the anomaly score
+def data_normalize(score_list):
+    returned_list = []
+    max_score = max(score_list)
+    min_score = min(score_list)
+    score_span = max_score - min_score
+    for index, value in enumerate(score_list):
+        value_normalized = (value - min_score) / score_span
+        returned_list.append(value_normalized)
+    return returned_list

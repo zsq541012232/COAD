@@ -1,6 +1,7 @@
 from matplotlib import pyplot as plt
 
 # 画一个ts
+from functions.utils.datatools import data_normalize
 from functions.utils.filetools import read_ground_truth_file
 from functions.utils.judgement import get_fpr_and_tpr, get_pre_recall_f1
 
@@ -38,6 +39,7 @@ def plot_dataset_affected_metric_number_by_ground_truth(list, data_instance):
 def plot_anomaly_line_with_ground_truth(list, ground_truth_time_list, model_name):
     x = [i for i in range(1440)]
     y = list[:1440]
+    y = data_normalize(y)
     plt.rcParams['figure.figsize'] = (15, 4)
     plt.rcParams['savefig.dpi'] = 300
     plt.rcParams['figure.dpi'] = 300
@@ -77,6 +79,7 @@ def plot_threshold_pre_recall(anomaly_time_point_ground_truth, anomaly_scores_at
                                               anomaly_scores_at_time,
                                               percent_x)
     fig, ax = plt.subplots()  # 创建图实例
+    percent_x.reverse()
     ax.plot(percent_x, pre_y, label='precision', linewidth=0.7,
             alpha=0.5,
             ls='-.',
@@ -92,7 +95,7 @@ def plot_threshold_pre_recall(anomaly_time_point_ground_truth, anomaly_scores_at
     plt.xlabel('Threshold Percentage')
     plt.title(method_name)
     ax.legend()
-    # plt.savefig(fname='/Users/zsq/Desktop/111.png', dpi=300)
+    # plt.savefig(fname='/Users/zhousiqi/Desktop/111.png', dpi=300)
     plt.show()
 
 
