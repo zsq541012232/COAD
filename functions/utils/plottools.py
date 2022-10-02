@@ -153,7 +153,7 @@ def plot_dataset_affected_metrics_number_sorted_colored(affected_metrics_number_
     plt.rcParams['figure.figsize'] = (15, 4)
     plt.rcParams['savefig.dpi'] = 300
     plt.rcParams['figure.dpi'] = 300
-    plt.ylim([min(y),700])
+    plt.ylim([min(y),300])
     print(max(y))
     ax.bar(x, y, color=order_color)
     plt.show()
