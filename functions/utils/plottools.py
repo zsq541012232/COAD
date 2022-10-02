@@ -1,3 +1,5 @@
+import copy
+
 from matplotlib import pyplot as plt
 
 # 画一个ts
@@ -99,7 +101,6 @@ def plot_threshold_pre_recall(anomaly_time_point_ground_truth, anomaly_scores_at
     plt.show()
 
 
-
 def plot_prc_curve(anomaly_time_point_ground_truth, anomaly_scores_at_time, method_name):
     percent_x = [i / 100 for i in range(100 + 1)]
     pre_y, recall_y, f1_y = get_pre_recall_f1(anomaly_time_point_ground_truth,
@@ -115,3 +116,46 @@ def plot_prc_curve(anomaly_time_point_ground_truth, anomaly_scores_at_time, meth
     plt.ylabel('Precision')
     ax.legend()
     plt.show()
+
+
+def get_elapsed_ground_truth_time(ground_truth_time_list, elapse_time, time_len):
+    returned_list = []
+    for index, value in enumerate(ground_truth_time_list):
+        for j in range(elapse_time + 1):
+            if value + j < time_len:
+                returned_list.append(value + j)
+    return list(set(returned_list))
+
+
+def get_color_list(time_len, elapsed_ground_truth_time):
+    returned_list = []
+    for i in range(time_len):
+        if i in elapsed_ground_truth_time:
+            returned_list.append('red')
+        else:
+            returned_list.append('green')
+    return returned_list
+
+
+def plot_dataset_affected_metrics_number_sorted_colored(affected_metrics_number_list, ground_truth_time_list,
+                                                        elapse_time):
+    time_len = len(affected_metrics_number_list)
+    elapsed_ground_truth_time = get_elapsed_ground_truth_time(ground_truth_time_list, elapse_time, time_len)
+    color_list = get_color_list(time_len, elapsed_ground_truth_time)
+    x = [i for i in range(time_len)]
+    y = [affected_metrics_number_list[i] for i in range(time_len)]
+    original_y = copy.deepcopy(y)
+    y.sort(reverse=True)
+
+    order_color = [t[1] for i in y for t in list(zip(original_y,color_list)) if i == t[0]]
+
+    fig, ax = plt.subplots()  # 创建图实例
+    plt.rcParams['figure.figsize'] = (15, 4)
+    plt.rcParams['savefig.dpi'] = 300
+    plt.rcParams['figure.dpi'] = 300
+    plt.ylim([min(y),700])
+    print(max(y))
+    ax.bar(x, y, color=order_color)
+    plt.show()
+
+
