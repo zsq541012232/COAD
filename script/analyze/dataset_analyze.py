@@ -159,6 +159,40 @@ def get_affected_metric_number_list_by_time(train_df, test_df):
     return returned_list
 
 
+def get_current_affected_metrics_number_plus_weight(test_df_list):
+    global value_upper_lists
+    global value_lower_lists
+    metrics_len = len(test_df_list)
+    returned_number = 0
+    for current_metric in range(metrics_len):
+        current_value = test_df_list[current_metric]
+        upper_value = value_upper_lists[current_metric]
+        lower_value = value_lower_lists[current_metric]
+        mean_value = (upper_value + lower_value) / 2
+        value_abs = abs(current_value - mean_value)
+        returned_number += value_abs
+
+
+    return returned_number
+
+
+def get_affected_metric_number_plus_weight_by_time(train_df, test_df):
+    time_len = len(test_df)
+    returned_list = []
+    fill_global_lists_by_metric(train_df)
+
+    for current_time in range(time_len):
+        test_df_list = test_df[current_time]
+        current_affected_metrics_number = get_current_affected_metrics_number_plus_weight(test_df_list)
+        returned_list.append(current_affected_metrics_number)
+
+    # normalize
+    returned_list_max = max(returned_list)
+    returned_list_normalized = [returned_list[i] / returned_list_max for i in range(len(returned_list))]
+
+    return returned_list_normalized
+
+
 def analyze_dataset_improve():
     instance = get_instance()
     test_time_base = instance[1]
@@ -177,10 +211,16 @@ def analyze_dataset_improve():
         test_df=test_matrix,
     )
 
+    # affected_metrics_number_order_by_time = get_affected_metric_number_plus_weight_by_time(
+    #     train_df=train_matrix,
+    #     test_df=test_matrix,
+    # )
+
     plot_dataset_affected_metrics_number_sorted_colored(
         affected_metrics_number_list=affected_metrics_number_order_by_time,
         ground_truth_time_list=sorted_ground_truth,
-        elapse_time=elapse_time
+        elapse_time=elapse_time,
+        instance=instance
     )
 
 
