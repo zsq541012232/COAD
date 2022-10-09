@@ -21,7 +21,7 @@ def plot_result_for_a_method(method_name, labels, M, R):
     index = np.arange(len(labels))
     width = 0.2
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(dpi=300)
 
     rect1 = ax.bar(index - width / 2, M, width=width, label='M')
     rect2 = ax.bar(index + width / 2, R, width=width, label='R')

@@ -1,5 +1,5 @@
 import copy
-from random import  sample
+from random import sample
 from matplotlib import pyplot as plt
 
 # 画一个ts
@@ -133,25 +133,25 @@ def get_color_list(time_len, elapsed_ground_truth_time):
         if i in elapsed_ground_truth_time:
             returned_list.append('red')
         else:
-            returned_list.append('green')
+            returned_list.append('lime')
     return returned_list
 
 
 def process_color(order_color):
     returned_list = copy.deepcopy(order_color)
-    random_red_list = sample([i for i in range(0,300)],100)
-    random_green_list = sample([i for i in range(300,600)],100)
+    random_red_list = sample([i for i in range(0, 300)], 100)
+    random_green_list = sample([i for i in range(300, 600)], 100)
 
     for index, value in enumerate(random_red_list):
         returned_list[value] = 'red'
     for index, value in enumerate(random_green_list):
-        returned_list[value] = 'green'
+        returned_list[value] = 'lime'
 
     return returned_list
 
 
 def plot_dataset_affected_metrics_number_sorted_colored(affected_metrics_number_list, ground_truth_time_list,
-                                                        elapse_time,instance):
+                                                        elapse_time, instance):
     time_len = len(affected_metrics_number_list)
     instance_name = instance[2]
     elapsed_ground_truth_time = get_elapsed_ground_truth_time(ground_truth_time_list, elapse_time, time_len)
@@ -161,21 +161,19 @@ def plot_dataset_affected_metrics_number_sorted_colored(affected_metrics_number_
     original_y = copy.deepcopy(y)
     y.sort(reverse=True)
 
-    order_color = [t[1] for i in y for t in list(zip(original_y,color_list)) if i == t[0]]
+    order_color = [t[1] for i in y for t in list(zip(original_y, color_list)) if i == t[0]]
     order_color = process_color(order_color)
-
 
     fig, ax = plt.subplots()  # 创建图实例
     plt.rcParams['figure.figsize'] = (15, 4)
     plt.rcParams['savefig.dpi'] = 300
     plt.rcParams['figure.dpi'] = 300
-    plt.ylim([min(y),300])
+    plt.ylim([min(y), 300])
     ax.bar(x, y, color=order_color, width=1)
     # 画出 y=1 这条水平线
-    ax.axhline(20, color='black',label='Solution_Length')
+    plt.hlines(y=20, xmin=-50, xmax=1440, ls='--', color='black')
+    plt.text(500, 28, 'Solution_Length=20', ha='left', va='center')
+
     plt.ylabel('Affected Metrics Number (3-sigma)')
     plt.xlabel('Sorted_TimeStamps')
-    plt.title(instance_name)
     plt.show()
-
-
