@@ -135,7 +135,7 @@ if __name__ == '__main__':
     anomaly_scores_list = read_list(result_score_path)
     model_name = method_name
 
-    plot_pre_recall_by_threshold(result_score_path, instance, method_name)
+    # plot_pre_recall_by_threshold(result_score_path, instance, method_name)
     #
     # plot_prc(result_score_path, instance, method_name)
     #
@@ -143,7 +143,7 @@ if __name__ == '__main__':
     #
     # putout_f1_by_threshold_percent(result_score_path, instance)
     #
-    show_result(test_time_base, ground_truth_path, anomaly_scores_list, model_name)
+    # show_result(test_time_base, ground_truth_path, anomaly_scores_list, model_name)
 
     avg_f1 = putout_f1_by_random_choose_threshold(result_score_path, instance)
     print('avg_f1: ' + str(avg_f1))
