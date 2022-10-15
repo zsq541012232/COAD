@@ -172,8 +172,8 @@ def plot_dataset_affected_metrics_number_sorted_colored(affected_metrics_number_
     ax.bar(x, y, color=order_color, width=1)
     # 画出 y=1 这条水平线
     plt.hlines(y=20, xmin=-50, xmax=1440, ls='--', color='black')
-    plt.text(500, 28, 'Solution_Length=20', ha='left', va='center')
+    plt.text(500, 28, 'solution length=20', ha='left', va='center')
 
-    plt.ylabel('Affected Metrics Number (3-sigma)')
-    plt.xlabel('Sorted_TimeStamps')
+    plt.ylabel('Abnormal Time Series Number (3-sigma)')
+    plt.xlabel('TimeStamps')
     plt.show()
