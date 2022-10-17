@@ -7,15 +7,15 @@ from mealpy.system_based import AEO
 
 def get_optimizer(optimizer, problem_dict):
     if optimizer == 'BBO':
-        model = BBO.BaseBBO(problem_dict, epoch=10, pop_size=50)
+        model = BBO.BaseBBO(problem_dict, epoch=20)
     elif optimizer == 'PSO':
-        model = PSO.BasePSO(problem_dict, epoch=10, pop_size=50)
+        model = PSO.BasePSO(problem_dict, epoch=20)
     elif optimizer == 'AEO':
-        model = AEO.OriginalAEO(problem_dict, epoch=10, pop_size=50)
+        model = AEO.OriginalAEO(problem_dict, epoch=20)
     elif optimizer == 'HS':
-        model = HS.BaseHS(problem_dict, epoch=10, pop_size=50)
+        model = HS.BaseHS(problem_dict, epoch=20)
     elif optimizer == 'GA':
-        model = GA.BaseGA(problem_dict, epoch=10, pop_size=50)
+        model = GA.BaseGA(problem_dict, epoch=20)
     else:
         return None
 
