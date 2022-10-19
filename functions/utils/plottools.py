@@ -42,17 +42,18 @@ def plot_anomaly_line_with_ground_truth(list, ground_truth_time_list, model_name
     x = [i for i in range(1440)]
     y = list[:1440]
     y = data_normalize(y)
-    plt.rcParams['figure.figsize'] = (15, 4)
+    plt.rcParams['figure.figsize'] = (15, 8)
     plt.rcParams['savefig.dpi'] = 300
     plt.rcParams['figure.dpi'] = 300
-    plt.plot(x, y, label=model_name + '_detected_result', linewidth=0.7,
+    plt.plot(x, y, label=model_name + '_Detection', linewidth=0.7,
              alpha=0.5,
              ls='-.',
              color='blue', marker='*')
-    plt.vlines(ground_truth_time_list, ymin=min(y), ymax=max(y), label='ground_truth', colors='green')
-    plt.xlabel('Timestamp')
-    plt.ylabel('Anomaly Score')
-    plt.legend()
+    plt.vlines(ground_truth_time_list, ymin=min(y), ymax=max(y), label='Ground_Truth', colors='green')
+    plt.xlabel('Timestamp',fontdict={'size':23})
+    plt.ylabel('Anomaly Score',fontdict={'size':23})
+    plt.legend(loc='upper left',prop={'size':23})
+    plt.tick_params(labelsize=23)
     plt.show()
 
 
@@ -97,7 +98,7 @@ def plot_threshold_pre_recall(anomaly_time_point_ground_truth, anomaly_scores_at
     plt.xlabel('Threshold Percentage')
     plt.title(method_name)
     ax.legend()
-    # plt.savefig(fname='/Users/zhousiqi/Desktop/111.png', dpi=300)
+    # plt.savefig(fname='/Users/zsq/Desktop/111.png', dpi=300)
     plt.show()
 
 

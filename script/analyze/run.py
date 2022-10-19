@@ -66,7 +66,7 @@ def get_method_name():
         optimizer = get_optimizer()
         return_method_name += optimizer + '_' + str(detection_model)
     else:
-        return_method_name += 'BASIC' + '_' + str(detection_model)
+        return_method_name += str(detection_model)
 
     return return_method_name
 
@@ -143,7 +143,7 @@ if __name__ == '__main__':
     #
     # putout_f1_by_threshold_percent(result_score_path, instance)
     #
-    # show_result(test_time_base, ground_truth_path, anomaly_scores_list, model_name)
+    show_result(test_time_base, ground_truth_path, anomaly_scores_list, model_name)
 
     avg_f1 = putout_f1_by_random_choose_threshold(result_score_path, instance)
     print('avg_f1: ' + str(avg_f1))
