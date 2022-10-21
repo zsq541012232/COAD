@@ -4,22 +4,12 @@ import numpy as np
 min_elapse = 10
 
 
-# criterion_list是ground_truth里面的时间点，detect_result是检测出的异常时间点
-# 这个评价函数会以ground_truth中的时间点为依据进行评分
-# 对于每个真实发生故障的时间点，往后time_elapse的时间内认为是故障都算正确
-# 如果有多个检测结果在这个允许的时间段内，则取他们的平均值
-# 剩下的错误检测结果将会额外剔除，作为误报率返回百分比
-# 对于检测的结果，返回平均检测时延
 def judge_time_point(criterion_list, detect_result, time_elapse):
-    # 首先对criterion进行排序
     criterion_list = sorted(criterion_list)
     detect_result = sorted(detect_result)
-    result_elapse = []  # 存放检测正确的结果的时延，如果不是正确检测，就不放
+    result_elapse = []
     false_num = 0
     right_set = set()
-    # 对于每一个在检测结果中的值进行检查，如果符合要求，就计算检测时延并且把时延放入result_elapse中,并标记相对应的异常被检测到了
-    # 如果不满足要求，就让误报个数加一
-    # 如果正确，还要记录这个异常被检测到了，并且最后返回检测到到异常占总异常百分比
     for index, value in enumerate(detect_result):
         if value in criterion_list:
             result_elapse.append(0)
@@ -42,9 +32,6 @@ def judge_time_point(criterion_list, detect_result, time_elapse):
         return avg_elapse, precision, recall
 
 
-# 输入是每个时间点的异常值
-# 根据异常值判断每个时间是否为异常点
-# 输出是认为是异常点的时间下标
 def judge_detect_result_using_3sigma(decision_scores):
     detect_result = []
     score_mean = np.mean(decision_scores)
@@ -63,7 +50,7 @@ def get_n_time(anomaly_time_point_ground_truth, time_len):
     return return_list
 
 
-# 根据min_elapse min内的positive来计算
+
 def find_p_by_threshold(anomaly_scores_at_time, current_threshold):
     return_list = []
     for index, value in enumerate(anomaly_scores_at_time):

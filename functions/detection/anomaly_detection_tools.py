@@ -4,7 +4,6 @@ from functions.detection.optimizer import get_optimizer
 from functions.utils.detection_tools import choose_model
 
 
-# 全局变量
 train_matrix = []
 test_matrix = []
 detection_model_name = ''
@@ -16,7 +15,7 @@ def anomaly_detection(model_name,
                       train_matrix_path,
                       test_matrix_path,
                       optimizer: str):
-    # 读入数据
+
     global train_matrix
     global test_matrix
     global detection_model_name
@@ -25,11 +24,11 @@ def anomaly_detection(model_name,
                                             test_matrix_path=test_matrix_path)
     detection_model_name = model_name
 
-    # 优化问题的定义
+
     problem_dict = problem_generation()
-    # 选择模型
+
     model = get_optimizer(optimizer,problem_dict)
-    # 对每个时间点进行检测
+
     current_time = 0
     solutions_list, anomaly_scores_list = conduct_detection_in_real_time(optimizer_model=model)
     return solutions_list,anomaly_scores_list
@@ -49,19 +48,19 @@ def get_array_data(solution):
     return_test_list = []
     solution_positions = list(set(solution))
     solution_positions_int = [int(value) for value in solution_positions]
-    # 获取train
+
     for train_row in range(len(train_matrix)):
         new_row = [train_matrix[train_row][solution_pos] for solution_pos in solution_positions_int]
         return_train_list.append(new_row)
-    # 获取test
+
     return_test_list.append([test_matrix[current_time][solution_pos] for solution_pos in solution_positions_int])
-    # 转换成np_array
+
     return_train_array = np.array(return_train_list)
     return_test_array = np.array(return_test_list)
     return return_train_array, return_test_array
 
 
-# solution中的值只可能是整数
+
 def amend_position(solution, lowerbound, upperbound):
     pos = np.clip(solution, lowerbound, upperbound)
     return pos.astype(int)

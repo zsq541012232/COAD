@@ -5,8 +5,6 @@ from functions.utils.datatools import get_dict_key,join_two_vector_and_their_ind
 import os
 
 
-# 读取指定kpi文件，并输入其日期信息
-# 返回高为1450的矩阵，每一列代表一个ts，dict信息代表每一列的ts名，下标从0开始
 def read_file(path, base_time_string):
     tuple_list = []
     f = pd.read_csv(path)
@@ -30,8 +28,7 @@ def read_file(path, base_time_string):
     return tuple_dict, init_matrix
 
 
-# 输入日期信息和groundtruth所在文件路径
-# 返回4个list信息
+
 def read_ground_truth_file(base_time_string, path):
     f = pd.read_csv(path)
     time_index = []
@@ -47,15 +44,13 @@ def read_ground_truth_file(base_time_string, path):
     return time_index, levels, cmdb_ids, failure_types
 
 
-# 这个函数将会读取file_paths中的所有以kpi开头的文件，并且将他们粘合成一个matrix，并返回其列信息和matrix
+
 def get_all_kpi_files_into_a_matrix(file_paths:list,base_time:str):
-    print('开始合并文件为matrix：')
     ituple_dict_init, matrix_init = read_file(file_paths[0],base_time)
     dict_new, matrix_new = ituple_dict_init, matrix_init
     i = 1
     for index,item in enumerate(file_paths):
         if index != 0:
-            print('合并文件为matrix，进度{}'.format(i/len(file_paths)))
             tuple_dict, matrix = read_file(item,base_time)
             dict_new, matrix_new = join_two_vector_and_their_index(matrix,tuple_dict,matrix_new,dict_new)
             i += 1

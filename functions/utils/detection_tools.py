@@ -61,8 +61,6 @@ def choose_model(model_name: str):
         return None
 
 
-# 输入训练ts矩阵，待测ts矩阵，ground_truth文件的path,测试时间的基准时间字符串，所选择模型的名称
-# 输出模型自动判别出的异常的平均测出时延，准确率，以及召回率
 def detection_test(train_ts_input,
                    test_ts_input,
                    ground_truth_path: str,
@@ -78,13 +76,12 @@ def detection_test(train_ts_input,
             anomaly_time.append(i)
     time_index, l, c, f = read_ground_truth_file(base_time_string, ground_truth_path)
     avg_elapse, precision, recall = judgement.judge_time_point(time_index, anomaly_time, 10)
-    print("检测平均时延为{},准确率为{},召回率为{}".format(avg_elapse, precision, recall))
 
 
 def print_avg_elapse_precision_recall(anomaly_time, ground_truth_path, base_time_string, time_elapse_threshold):
     time_index, l, c, f = read_ground_truth_file(base_time_string, ground_truth_path)
     avg_elapse, precision, recall = judgement.judge_time_point(time_index, anomaly_time, time_elapse_threshold)
-    print("检测平均时延为{},准确率为{},召回率为{}".format(avg_elapse, precision, recall))
+
     return avg_elapse, precision, recall
 
 
@@ -106,7 +103,6 @@ def real_time_detect_and_return_anomaly_score(train_dict,
 
 
 def conduct_pyod_detection(train_matrix_path, test_matrix_path,model_name):
-    print('begin ' + model_name + ' detection')
     train_df = pd.read_csv(train_matrix_path)
     test_df = pd.read_csv(test_matrix_path)
     train_df_1 = train_df.drop(['Unnamed: 0', 'time'], axis=1)

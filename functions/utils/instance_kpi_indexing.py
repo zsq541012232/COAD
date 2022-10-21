@@ -3,10 +3,6 @@ import pandas as pd
 import json
 
 
-# 这个函数会统计文件夹下所有相关的cmbd_id以及kpi_name,并将他们组合为元组，之后放入字典内
-# key为(instance,kpi),value为编号,编号为这个函数自动生成
-# 这个字典作为全局信息，供后面时间序列分析使用
-# 同时，这个函数也会生成instance和kpi的自己的编号,也是作为字典的形式
 def generate_instance_cmdbid_tuple_dict():
     instance_names = set()
     kpi_names = set()
@@ -18,9 +14,8 @@ def generate_instance_cmdbid_tuple_dict():
             if name.startswith('kpi_'):
                 f = pd.read_csv(os.path.join(root, name))
                 for index, value in f.iterrows():
-                    instance_names.add(value[1])  # value[1]是cmdb_id
-                    kpi_names.add(value[2])  # value[2]是kpi_name
-    # 进行编号
+                    instance_names.add(value[1])
+                    kpi_names.add(value[2])
     for index, item in enumerate(instance_names):
         instance_names_no[index] = item
     for index, item in enumerate(kpi_names):
