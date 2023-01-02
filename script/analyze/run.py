@@ -1,5 +1,5 @@
 from functions.utils.filetools import read_ground_truth_file, read_list
-from functions.utils.judgement import get_pre_recall_f1, get_current_pre_and_recall
+from functions.utils.judgement import get_pre_recall_f1, get_current_pre_and_recall, calculate_auc
 from functions.utils.plottools import plot_threshold_pre_recall, plot_prc_curve, plot_roc_curve, show_result
 from script.detection.run import get_instance, get_type, get_model, get_optimizer
 import random
@@ -87,6 +87,16 @@ def get_f1(anomaly_time_point_ground_truth, anomaly_scores_at_time, percent):
     return f1
 
 
+def putout_auc(score_path, instance_):
+    test_time_base = instance_[1]
+    ground_truth_path = '../../' + instance_[0] + '/ground_truth.csv'
+
+    anomaly_time_point_ground_truth, l, c, f = read_ground_truth_file(test_time_base, ground_truth_path)
+    anomaly_scores_at_time = read_list(score_path)
+
+    return calculate_auc(anomaly_time_point_ground_truth, anomaly_scores_at_time)
+
+
 def putout_f1_by_random_choose_threshold(score_path, instance_):
     f1_list = []
     random_choose_time = 10000
@@ -150,3 +160,6 @@ if __name__ == '__main__':
 
     max_f1 = putout_max_f1_among_all_threshold(result_score_path, instance)
     print('max_f1: ' + str(max_f1))
+
+    auc_score = putout_auc(result_score_path, instance)
+    print('auc: ' + str(auc_score))

@@ -47,9 +47,9 @@ def plot_anomaly_line_with_ground_truth(list, ground_truth_time_list, model_name
              ls='-.',
              color='blue', marker='*')
     plt.vlines(ground_truth_time_list, ymin=min(y), ymax=max(y), label='Ground_Truth', colors='green')
-    plt.xlabel('Timestamp',fontdict={'size':25},loc='right')
-    plt.ylabel('Anomaly Score',fontdict={'size':25})
-    plt.legend(loc='upper left',prop={'size':20})
+    plt.xlabel('Timestamp', fontdict={'size': 25}, loc='right')
+    plt.ylabel('Anomaly Score', fontdict={'size': 25})
+    plt.legend(loc='upper left', prop={'size': 20})
     plt.tick_params(labelsize=25)
     plt.show()
 
@@ -62,10 +62,11 @@ def show_result(test_time_base, ground_truth_path, anomaly_scores_list, model_na
 
 def plot_roc_curve(anomaly_time_point_ground_truth, anomaly_scores_at_time, method_name):
     FPR, TPR = get_fpr_and_tpr(anomaly_time_point_ground_truth, anomaly_scores_at_time)
-    plt.plot(FPR, TPR, label='roc', linewidth=0.7,
-             alpha=0.5,
-             ls='-.',
-             color='blue', marker='*')
+    fig, ax = plt.subplots(dpi=300)
+    ax.plot(FPR, TPR, label='roc', linewidth=0.7,
+            alpha=0.5,
+            ls='-.',
+            color='blue', marker='*')
     plt.title(method_name)
     plt.xlabel('FPR')
     plt.ylabel('TPR')
@@ -78,7 +79,7 @@ def plot_threshold_pre_recall(anomaly_time_point_ground_truth, anomaly_scores_at
     pre_y, recall_y, f1_y = get_pre_recall_f1(anomaly_time_point_ground_truth,
                                               anomaly_scores_at_time,
                                               percent_x)
-    fig, ax = plt.subplots()  # 创建图实例
+    fig, ax = plt.subplots(dpi=300)  # 创建图实例
     percent_x.reverse()
     ax.plot(percent_x, pre_y, label='precision', linewidth=0.7,
             alpha=0.5,
@@ -103,7 +104,7 @@ def plot_prc_curve(anomaly_time_point_ground_truth, anomaly_scores_at_time, meth
     pre_y, recall_y, f1_y = get_pre_recall_f1(anomaly_time_point_ground_truth,
                                               anomaly_scores_at_time,
                                               percent_x)
-    fig, ax = plt.subplots()  # 创建图实例
+    fig, ax = plt.subplots(dpi=300)  # 创建图实例
     ax.plot(recall_y, pre_y, label='prc', linewidth=0.7,
             alpha=0.5,
             ls='-.',
@@ -134,7 +135,6 @@ def get_color_list(time_len, elapsed_ground_truth_time):
     return returned_list
 
 
-
 def plot_dataset_affected_metrics_number_sorted_colored(affected_metrics_number_list, ground_truth_time_list,
                                                         elapse_time, instance):
     time_len = len(affected_metrics_number_list)
@@ -154,9 +154,9 @@ def plot_dataset_affected_metrics_number_sorted_colored(affected_metrics_number_
     plt.ylim([min(y), 300])
     ax.bar(x, y, color=order_color, width=1)
     plt.hlines(y=20, xmin=-50, xmax=1440, ls='--', color='black')
-    plt.text(500, 28, 'solution length=20', ha='left', va='center',fontdict={'size':15})
+    plt.text(500, 28, 'solution length=20', ha='left', va='center', fontdict={'size': 15})
 
-    plt.ylabel('Abnormal Metrics Number (3-sigma)',fontdict={'size':15})
-    plt.xlabel('TimeStamps',fontdict={'size':15})
+    plt.ylabel('Abnormal Metrics Number (3-sigma)', fontdict={'size': 15})
+    plt.xlabel('TimeStamps', fontdict={'size': 15})
     plt.tick_params(labelsize=15)
     plt.show()

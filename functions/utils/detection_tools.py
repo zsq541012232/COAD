@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 from pyod.models.abod import ABOD
-from pyod.models.anogan import AnoGAN
 from pyod.models.auto_encoder import AutoEncoder
 from pyod.models.cblof import CBLOF
 from pyod.models.cof import COF
@@ -31,8 +30,6 @@ def choose_model(model_name: str):
         return AutoEncoder()
     elif model_name == 'COF':
         return COF()
-    elif model_name == 'AnoGAN':
-        return AnoGAN()
     elif model_name == 'CBLOF':
         return CBLOF()
     elif model_name == 'ABOD':
