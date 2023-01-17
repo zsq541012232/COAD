@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from functions.detection.optimizer import get_optimizer
 from functions.utils.detection_tools import choose_model
+import datetime
 
 
 train_matrix = []
@@ -85,10 +86,14 @@ def conduct_detection_in_real_time(optimizer_model):
     time_len = len(test_matrix)
     while current_time < time_len:
         print('time_point：' + str(current_time) + ' detecting')
+        start_time = datetime.datetime.now()
         best_position, best_fitness = optimizer_model.solve()
+        end_time = datetime.datetime.now()
         solutions_list.append(best_position)
         anomaly_scores_list.append(best_fitness)
         print('time_point: ' + str(current_time) + ' anomaly_score is: ' + str(best_fitness))
+        cost_time = round((end_time - start_time).total_seconds(), 2)
+        print('time cost for this moment detection is：{}秒'.format(cost_time))
         current_time += 1
     return solutions_list, anomaly_scores_list
 

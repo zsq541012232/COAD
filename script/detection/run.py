@@ -6,6 +6,7 @@ from functions.utils.plottools import show_result
 import script.plans.plan as plobj
 
 
+
 def get_type():
     flag = True
     return_type = ''
