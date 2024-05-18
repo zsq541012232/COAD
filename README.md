@@ -1,6 +1,6 @@
 # The dataset and code implementation of COAD
 
-## Congradulations! We publish our research paper on the conference APSEC2023!
+## Congratulations! We have published our research paper on the conference of APSEC2023!
 
 Here is the link: https://conf.researchr.org/details/apsec-2023/apsec-2023-technical-track/39/Effective-Anomaly-Detection-for-Microservice-Systems-with-Real-Time-Feature-Selection
 
